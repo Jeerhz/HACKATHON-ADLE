@@ -25,26 +25,15 @@
     </header>
 
 
-    <form id="pdf-upload-form" enctype="multipart/form-data">
-      <input type="file" accept=".pdf" id="pdf-file-input" style="display: none;">
-      <label for="pdf-file-input" class="button" id="pdf-button">Sélectionner un fichier PDF</label>
-    </form>
 
-    <script>
-      const pdfFileInput = document.getElementById("pdf-file-input");
-      const pdfFileUrl = document.getElementById("pdf-file-url");
 
-      pdfFileInput.addEventListener("change", function () {
-        const selectedFile = pdfFileInput.files[0];
-        if (selectedFile) {
-          const fileUrl = URL.createObjectURL(selectedFile);
-          pdfFileUrl.textContent = fileUrl;
-        } else {
-          pdfFileUrl.textContent = "";
-        }
-      });
+
 
     </script>
+
+    <button type="submit" class="button" style="background-color: #005a52; color: #fff"><input type="file"
+        name="pdf_file" accept=".pdf"> <input type="submit" value="Envoyer" id="url-pdf"></button>
+
 
     <div class="audio-container">
       <audio controls autoplay>

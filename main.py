@@ -11,7 +11,6 @@ def Handlepage():
     return render_template("index.html", name=__name__)
 
 
-@app.route("/")
 @app.route("/question", methods=["GET"])
 def handleQuestion():
     question = gp3_completion("Pose-moi une question sur le cours")

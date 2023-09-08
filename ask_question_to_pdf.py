@@ -80,7 +80,7 @@ def split_text(text, chunk_size=5000):
 
 filename = os.path.join(
     os.path.dirname(
-        "C:/Users/adles/OneDrive/Bureau/HACKATHON/HACKATHON-ADLE/Luc_Dormieux.pdf"
+        "C:/Users/adles/OneDrive/Bureau/HACKATHON/HACKATHON-ADLE/static/Luc_Dormieux.pdf"
     ),
     "Luc_Dormieux.pdf",
 )

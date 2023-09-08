@@ -2,6 +2,7 @@ const promptForm = document.getElementById("prompt-form");
 const submitButton = document.getElementById("submit-button");
 const questionButton = document.getElementById("question-button");
 const messagesContainer = document.getElementById("messages-container");
+const url_pdf = document.getElementById("pdf_url")
 
 const appendHumanMessage = (message) => {
   const humanMessageElement = document.createElement("div");
