@@ -78,21 +78,28 @@ def split_text(text, chunk_size=5000):
     return chunks
 
 
-filename = os.path.join(os.path.dirname('C:/Users/adles/OneDrive/Bureau/HACKATHON/Luc_Dormieux.pdf'), "Luc_Dormieux.pdf")
+filename = os.path.join(
+    os.path.dirname("C:/Users/adles/OneDrive/Bureau/HACKATHON/Luc_Dormieux.pdf"),
+    "Luc_Dormieux.pdf",
+)
 document = read_pdf(filename)
 chunks = split_text(document)
 
 
-
-
 def gp3_completion(var):
     reponse = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages=[
-            {"role": "system", "content": 'Tu es un gentil assistant qui existe pour aider à faire apprendre le cours suivant:' + document},
-            {"role": "system", "content": 'Pose-moi une question sur le cours et je te répondrai.'},
-            {"role": "system", "content": var  }
-        ]
+        model="gpt-3.5-turbo",
+        messages=[
+            {
+                "role": "system",
+                "content": "Tu es un gentil assistant qui existe pour aider à faire apprendre le cours suivant:"
+                + document,
+            },
+            {
+                "role": "system",
+                "content": "Pose-moi une question sur le cours et je te répondrai.",
+            },
+            {"role": "system", "content": var},
+        ],
     )
     return reponse
-

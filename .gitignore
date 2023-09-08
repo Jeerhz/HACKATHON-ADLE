@@ -1,1 +1,6 @@
 .env
+.env.example
+.venv
+.vscode
+services
+_pycache_
