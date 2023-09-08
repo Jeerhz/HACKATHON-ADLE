@@ -1,7 +1,0 @@
-{
-    "recommendations": [
-        "ms-python.flake8",
-        "ms-python.python",
-        "donjayamanne.python-environment-manager"
-    ]
-}

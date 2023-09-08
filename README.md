@@ -1,26 +1,20 @@
-Dojo Clean Code
-===
+# Hackathon Ponts ENPC
 
-# Installation
+## Install
 
-This application requires python3 in order to work.
+- when opening VSCode, install the suggested extensions (Python, Black Formatter and Pylance)
+- create your python environment `python3 -m venv .venv`
+- copy the `.env.example` file to a `.env` file
+- replace the `OPENAI_API_KEY` and `OPENAI_ORGANIZATION` env variables with the real values
+- activate your environment with `  `
+- download necessary data with `python -m nltk.downloader all`
+- run the server with `flask --app main run --debug`
 
-Install dependencies, through `conda`:
+The server should answer on http://localhost:5000
 
-```bash
-conda install --file requirements.txt
-```
+You can deactivate the environment with `deactivate`.
 
-or through `pip3`
+## Adding librairies
 
-```bash
-pip3 install -r requirements.txt
-```
-
-# Usage
-
-Run program:
-
-```bash
-python3 vault.py
-```
+if you need to use a new librairies, you can do it with pip
+`pip install [library name]` or `pip3 install [library name]`
