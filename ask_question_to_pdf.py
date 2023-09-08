@@ -99,9 +99,9 @@ def gp3_completion(var):
             },
             {
                 "role": "system",
-                "content": "Pose-moi une question sur le cours et je te répondrai.",
+                "content": "Pose moi une question et je te répondrai en te corrigeant",
             },
-            {"role": "system", "content": var},
+            {"role": "user", "content": var},
         ],
     )
     return reponse

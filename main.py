@@ -11,6 +11,7 @@ def Handlepage():
     return render_template("index.html", name=__name__)
 
 
+@app.route("/")
 @app.route("/question", methods=["GET"])
 def handleQuestion():
     question = gp3_completion("Pose-moi une question sur le cours")
@@ -31,6 +32,7 @@ def handlePrompt():
 def handleAnswer():
     reponse = request.form["prompt"]
     correction = gp3_completion(
-        reponse + ":La réponse est-elle correcte ? Dis moi ce que tu attendais"
+        reponse
+        + ":La réponse est-elle correcte ? Corrige moi et donne moi la réponse attendue"
     )
     return {"answer": correction["choices"][0]["message"]["content"]}

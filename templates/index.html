@@ -5,14 +5,53 @@
   <title>Mon A.I.de mémoire</title>
 
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 </head>
 
 <body>
   <main class="main-container">
-    <header class="header">
-      <h1 class="header-title">Mon A.I.de mémoire</h1>
+    <header class="header" style="background-color: #00796b; color: #fff; padding: 20px 0; text-align: center;">
+      <h1 class="header-title" style="font-size: 25px; margin-bottom: 10px;">Mon A.I.de mémoire</h1>
+      <p class="header-subtitle" style="font-size: 14px;">Votre assistant de cours personnel</p>
     </header>
+    <header class="header"
+      style="background-color: #005a52; color: #fff; padding: 10px 0; border-bottom: 5px solid #005a52; text-align: center;">
+      <h1 class="description-title" style="font-size: 18px; margin-bottom: 3px;">Description</h1>
+      <p class="explanations_site" style="font-size: 13px;">Sélectionnez un fichier pdf contenant le cours et laissez
+        moi vous aider à l'apprendre. Vous pourrez me poser des questions ou me demander de vous interroger</p>
+    </header>
+
+
+    <form id="pdf-upload-form" enctype="multipart/form-data">
+      <input type="file" accept=".pdf" id="pdf-file-input" style="display: none;">
+      <label for="pdf-file-input" class="button" id="pdf-button">Sélectionner un fichier PDF</label>
+    </form>
+
+    <script>
+      const pdfFileInput = document.getElementById("pdf-file-input");
+      const pdfFileUrl = document.getElementById("pdf-file-url");
+
+      pdfFileInput.addEventListener("change", function () {
+        const selectedFile = pdfFileInput.files[0];
+        if (selectedFile) {
+          const fileUrl = URL.createObjectURL(selectedFile);
+          pdfFileUrl.textContent = fileUrl;
+        } else {
+          pdfFileUrl.textContent = "";
+        }
+      });
+
+    </script>
+
+    <div class="audio-container">
+      <audio controls autoplay>
+        <source src="{{ url_for('static', filename='ABC.mp3') }}" type="audio/mpeg">
+        Votre navigateur ne supporte pas l'élément audio.
+      </audio>
+    </div>
 
     <section id="messages-container" class="messages-container">
       <div class="message message-ai">
@@ -26,19 +65,15 @@
 
       <input type="text" id="prompt" name="prompt" class="prompt-input" autocomplete="off" />
 
-      <button type="submit" class="button" id="submit-button">Envoyer</button>
+      <button type="submit" class="button" style="background-color: #005a52; color: #fff"
+        id="submit-button">Envoyer</button>
 
-      <button type="button" class="button" id="question-button">
+      <button type="button" class="button" style="background-color: #005a52; color: #fff" id="question-button">
         Pose-moi une question !
       </button>
 
-      <audio controls>
-        <source src="ABC.mp3" type="audio/mpeg">
-        Votre navigateur ne supporte pas l'élément audio.
-      </audio>
-
-
     </form>
+
 
     <script src="{{ url_for('static', filename='prompt.js') }}"></script>
   </main>
